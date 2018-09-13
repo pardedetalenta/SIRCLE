@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Sirclo Test - Berat</title>
+</head>
+<body>
+	<div class="container">
+		<div class="table-wrapper">
+			<div class="table-title">
+				<div class="row">
+					<div>
+						<h2 style="margin-left: 17px">Berat</h2>
+
+					</div>
+
+				</div>
+			</div>
+			<div th:if="${not #lists.isEmpty(berat)}">
+				<table class="table table-striped tble-hover">
+					<tr>
+						<th>ID</th>
+						<th>Tanggal</th>
+						<th>Berat Max</th>
+						<th>Berat Min</th>
+						<th>Perbedaan</th>
+						<th>Action</th>
+					</tr>
+
+					<tr th:object="${berat}">
+						<td th:text="${berat.id}"></td>
+						<td th:text="${berat.date}"></td>
+						<td th:text="${berat.beratMax}"></td>
+						<td th:text="${berat.beratMin}"></td>
+						<td th:text="${berat.beratMax}-${berat.beratMin}"></td>
+						<td></td>
+					</tr>
+				</table>
+				<div>
+					<a href="/berat" class="btn btn-danger"><span>Cancel</span></a>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
